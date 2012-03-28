@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!-- Boilerplate from http://www.engineyard.com/blog/2012/building-mobile-web-applications-with-kendo-ui-and-engine-yard -->
+<div data-role="layout" data-id="app">
+   <header data-role="header">
+      <div data-role="navbar">Conference Tracker</div>
+   </header>
+   <footer data-role="footer">
+      <div data-role="tabstrip">
+         <a href="#info" data-icon="info">Info</a>
+         <a href="#schedule" data-icon="recents">Schedule</a>
+      </div>
+   </footer>
+</div>
+ 
+<div data-role="view" data-init="getInfo" data-layout="app" data-title="info" id="info">
+   <div id="news"></div>
+</div>
+ 
+<div data-role="view" data-layout="app" data-init="getSessions" data-title="schedule" id="schedule">
+   <ul id="sessions"></ul>
+</div>
+
+<script>
+  var app = new kendo.mobile.Application($(document).body);
+</script>

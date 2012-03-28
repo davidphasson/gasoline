@@ -1,4 +1,6 @@
 Gasoline::Application.routes.draw do
+  resources :cars
+
   get "home/index"
 
   # The priority is based upon order of creation:
