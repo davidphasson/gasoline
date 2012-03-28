@@ -20,6 +20,12 @@ Here is how you use it:
   a. What was your gas mileage for the last fill-up / week / month
   b. How often do you fill up?
 
+== Development
+
+1. It's just from a tutorial - the Kendo UI one at Engine Yard
+
+http://www.engineyard.com/blog/2012/building-mobile-web-applications-with-kendo-ui-and-engine-yard/#more-11929
+
 ==  The End
 
 
