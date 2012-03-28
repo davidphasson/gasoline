@@ -1,24 +1,45 @@
 <!-- Boilerplate from http://www.engineyard.com/blog/2012/building-mobile-web-applications-with-kendo-ui-and-engine-yard -->
 <div data-role="layout" data-id="app">
    <header data-role="header">
-      <div data-role="navbar">Conference Tracker</div>
+      <div data-role="navbar">Gasoline</div>
    </header>
    <footer data-role="footer">
       <div data-role="tabstrip">
-         <a href="#info" data-icon="info">Info</a>
-         <a href="#schedule" data-icon="recents">Schedule</a>
+         <a href="#mycars" data-icon="info">Cars</a>
+         <a href="#info" data-icon="recents">Info</a>
       </div>
    </footer>
 </div>
  
-<div data-role="view" data-init="getInfo" data-layout="app" data-title="info" id="info">
-   <div id="news"></div>
+<div data-role="view" data-init="getCars" data-layout="app" data-title="mycars" id="mycars">
+   <ul id="cars"></ul>
 </div>
  
-<div data-role="view" data-layout="app" data-init="getSessions" data-title="schedule" id="schedule">
-   <ul id="sessions"></ul>
+<div data-role="view" data-layout="app" data-init="getSessions" data-title="info" id="info">
+   <div id="infos"></div>
 </div>
+
+<script type="text/x-kendo-template" id="carsTemplate">
+	<div class="left">
+		<div class='make'>${ make }</div>
+		<div class='model'>${ model }</div>
+	</div>
+	<div>${ name }</div>
+</script>
 
 <script>
   var app = new kendo.mobile.Application($(document).body);
+
+  var getCars = function() {
+	  $("#cars").kendoMobileListView({
+		  dataSource: kendo.data.DataSource.create({
+			  transport: {
+				  read: "cars.json"
+			  },
+			  sort: { field: "name", dir: "asc" }
+		  }),
+		  template: $("#carsTemplate").html()
+	  });
+  }
+
 </script>
